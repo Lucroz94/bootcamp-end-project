@@ -11,7 +11,10 @@ EXPOSE 8080
 #Environnement variable that will be overloaded further by ODOO and pgAdmin
 ENV ODOO_URL https://odoo.com
 ENV PGADMIN_URL https://pgadmin.org
-#Copy the python script from the host directory inside the container
+#Copy the python script from the host directory inside the container and the folders for the website
 COPY app.py ./
+COPY images/ ./images
+COPY templates/ ./templates
+COPY static/ ./static
 #Lauch the python script to overload variables
 CMD [ "python", "./app.py"]
